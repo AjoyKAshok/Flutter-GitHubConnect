@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:machine_test/app/data/models/repos.dart';
 import 'package:machine_test/app/routes/app_routes.dart';
 import 'package:machine_test/notifier/user_provider.dart';
 import 'package:provider/provider.dart';
@@ -10,7 +10,7 @@ class UserDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final userInfo = context.watch<UserProvider>().user;
-    final List reposInfo = context.watch<UserProvider>().repos;
+    final List<Repos?> reposInfo = context.watch<UserProvider>().repos;
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -26,25 +26,14 @@ class UserDetailsScreen extends StatelessWidget {
             title: Text(
               userInfo.name!,
               style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                  const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
             subtitle: Text(
               userInfo.bio!,
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: Row(
-              children: const [
-                Icon(
-                  Icons.person,
-                  color: Colors.white,
-                ),
-                
-              ],
-            ),
-          ),
+          
           const SizedBox(height: 20),
           const Padding(
             padding: EdgeInsets.only(left: 20),
@@ -63,14 +52,14 @@ class UserDetailsScreen extends StatelessWidget {
                 return GestureDetector(
                   onTap: () {
                     Navigator.of(context)
-                        .pushNamed(AppRoutes.webview, arguments: item.html_url);
+                        .pushNamed(AppRoutes.webview, arguments: item?.html_url);
                   },
                   child: Container(
                     decoration: BoxDecoration(
                       border: Border.all(
                         color: Colors.grey,
                       ),
-                      borderRadius: BorderRadius.all(
+                      borderRadius: const BorderRadius.all(
                         Radius.circular(12.0),
                       ),
                     ),
@@ -78,8 +67,9 @@ class UserDetailsScreen extends StatelessWidget {
                       color: Colors.black,
                       child: Center(
                         child: Text(
-                          item.name,
-                          style: TextStyle(color: Colors.white),
+                          
+                          item!.name,
+                          style:  const TextStyle(color: Colors.white),
                           overflow: TextOverflow.ellipsis,
                           maxLines: 1,
                         ),

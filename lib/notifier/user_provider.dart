@@ -29,7 +29,7 @@ class UserProvider extends ChangeNotifier {
       final UserProfile response =
           await _githubApi.getUserProfile(username: username);
       _user = response;
-      print(_user.name);
+      
       setLoading(false);
     } catch (e) {
       const errorMessage = 'UnKnown Error';
@@ -47,7 +47,7 @@ class UserProvider extends ChangeNotifier {
       _repos = response;
 
       setLoading(false);
-      // print(_repos);
+      print(_repos);
       Navigator.of(ctx).pushNamed(AppRoutes.user_details);
     } catch (e) {
       const errorMessage = 'UnKnown Error';

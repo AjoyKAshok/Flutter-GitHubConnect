@@ -2,12 +2,12 @@ import 'package:dio/dio.dart';
 import 'package:machine_test/app/data/endpoints.dart';
 
 class DioClient {
-  static BaseOptions options = new BaseOptions(
+  static BaseOptions options = BaseOptions(
     baseUrl: Endpoints.baseUrl,
     connectTimeout: Endpoints.connectionTimeout,
     receiveTimeout: Endpoints.receiveTimeout,
   );
-  Dio _dio = Dio(options);
+  final Dio _dio = Dio(options);
 
   Future<dynamic> get(
     String uri, {
@@ -26,7 +26,7 @@ class DioClient {
       );
       return response.data;
     } catch (e) {
-      throw e;
+      rethrow;
     }
   }
 

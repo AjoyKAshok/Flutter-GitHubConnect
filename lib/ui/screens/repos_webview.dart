@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class ReposWebView extends StatefulWidget {
-  ReposWebView({Key? key}) : super(key: key);
+  const ReposWebView({Key? key}) : super(key: key);
 
   @override
   _ReposWebViewState createState() => _ReposWebViewState();

@@ -4,6 +4,7 @@ import 'package:machine_test/notifier/user_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 

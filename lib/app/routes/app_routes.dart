@@ -6,6 +6,7 @@ import 'package:machine_test/ui/screens/user_details_screen.dart';
 
 class AppRoutes {
   static const String home = '/';
+  // ignore: constant_identifier_names
   static const String user_details = '/user-details';
   static const String webview = '/web-view';
 
@@ -16,10 +17,10 @@ class AppRoutes {
       case user_details:
         return _buildRoute(const UserDetailsScreen(), settings);
       case webview:
-        return _buildRoute(ReposWebView(), settings);
+        return _buildRoute(const ReposWebView(), settings);
 
       default:
-        return _buildRoute(Scaffold(), settings);
+        return _buildRoute(const Scaffold(), settings);
     }
   }
 

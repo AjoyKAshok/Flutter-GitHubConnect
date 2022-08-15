@@ -38,14 +38,14 @@ class HomeScreen extends StatelessWidget {
             child: TextField(
               controller: userNameController,
               cursorColor: Colors.white,
-              style: TextStyle(color: Colors.white),
-              decoration: InputDecoration(
+              style: const TextStyle(color: Colors.white),
+              decoration: const InputDecoration(
                 fillColor: Colors.white,
                 focusedBorder: OutlineInputBorder(
                     borderSide:
-                        const BorderSide(color: Colors.white, width: 3.0)),
-                enabledBorder: const OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.white, width: 2.0),
+                      BorderSide(color: Colors.white, width: 3.0)),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white, width: 2.0),
                 ),
                 hintStyle: TextStyle(color: Colors.white),
               ),
@@ -62,12 +62,12 @@ class HomeScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Get my Github Profile'),
+                   const Text('Get my Github Profile'),
                     const SizedBox(
                       width: 10,
                     ),
                     model.isLoading
-                        ? CircularProgressIndicator(
+                        ? const CircularProgressIndicator(
                             backgroundColor: Colors.white,
                           )
                         : const SizedBox.shrink()
